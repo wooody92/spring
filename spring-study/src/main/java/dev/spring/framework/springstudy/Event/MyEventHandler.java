@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 public class MyEventHandler {
 
     @EventListener
-    @Async
     public void handle(MyEvent event) {
         System.out.println(Thread.currentThread().toString());
         System.out.println("Event #1. Data is " +event.getData());

@@ -1,28 +1,33 @@
 package dev.spring.framework.springstudy;
 
-import dev.spring.framework.springstudy.Event.MyEvent;
-import java.nio.file.Files;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AppRunner implements ApplicationRunner {
 
     @Autowired
-    ResourceLoader resourceLoader;
+    ApplicationContext resourceLoader;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        // WebApplicationContext
+        System.out.println(resourceLoader.getClass());
+
+        // ClassPathResource
         Resource resource = resourceLoader.getResource("classpath:test.txt");
+        System.out.println(resource.getClass());
         System.out.println(resource.exists());
         System.out.println(resource.getDescription());
 
-        // 해당 경로의 파일 내용 읽어오기. Java11 부터 정상 동작한다.
-//        System.out.println(Files.readString(Path.of(resource.getURI())));
+        // ServletContextResource
+        Resource resource2 = resourceLoader.getResource("test.txt");
+        System.out.println(resource2.getClass());
+        System.out.println(resource2.exists());
+        System.out.println(resource2.getDescription());
     }
 }

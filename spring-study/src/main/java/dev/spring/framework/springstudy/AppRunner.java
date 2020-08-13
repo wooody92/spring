@@ -18,6 +18,5 @@ public class AppRunner implements ApplicationRunner {
         eventService.createEvent();
         eventService.publishEvent();
         eventService.deleteEvent();
-        eventService.crosscuttingConcernsEvent();
     }
 }

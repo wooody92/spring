@@ -8,6 +8,4 @@ public interface EventService {
     void publishEvent();
 
     void deleteEvent();
-
-    void crosscuttingConcernsEvent();
 }

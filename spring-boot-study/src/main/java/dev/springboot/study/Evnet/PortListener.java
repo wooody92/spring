@@ -1,4 +1,4 @@
-package dev.springboot.study;
+package dev.springboot.study.Evnet;
 
 import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
 import org.springframework.boot.web.servlet.context.ServletWebServerInitializedEvent;
@@ -17,6 +17,6 @@ public class PortListener implements ApplicationListener<ServletWebServerInitial
         ServletWebServerInitializedEvent servletWebServerInitializedEvent) {
         ServletWebServerApplicationContext applicationContext = servletWebServerInitializedEvent
             .getApplicationContext();
-        System.out.println(">>> port : " + applicationContext.getWebServer().getPort());
+//        System.out.println(">>> port : " + applicationContext.getWebServer().getPort());
     }
 }

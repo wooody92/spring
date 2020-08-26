@@ -1,6 +1,5 @@
 package dev.springboot.study;
 
-import dev.springboot.study.Evnet.SampleListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +9,7 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
-        app.setWebApplicationType(WebApplicationType.NONE);
+//        app.setWebApplicationType(WebApplicationType.NONE);
         app.run(args);
     }
 }

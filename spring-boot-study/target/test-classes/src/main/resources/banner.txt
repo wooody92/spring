@@ -1,4 +1,0 @@
-=======================
-=  Henry Spring Boot  =
-=  ${spring-boot.version} =
-=======================

@@ -1,0 +1,44 @@
+{
+  "groups": [
+    {
+      "name": "MyBean",
+      "type": "dev.springboot.autoConfig.MyBeanProperties",
+      "sourceType": "dev.springboot.autoConfig.MyBeanProperties"
+    },
+    {
+      "name": "henry",
+      "type": "dev.springboot.study.HenryProperties",
+      "sourceType": "dev.springboot.study.HenryProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "MyBean.age",
+      "type": "java.lang.Integer",
+      "sourceType": "dev.springboot.autoConfig.MyBeanProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "MyBean.name",
+      "type": "java.lang.String",
+      "sourceType": "dev.springboot.autoConfig.MyBeanProperties"
+    },
+    {
+      "name": "henry.age",
+      "type": "java.lang.Integer",
+      "sourceType": "dev.springboot.study.HenryProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "henry.full-name",
+      "type": "java.lang.String",
+      "sourceType": "dev.springboot.study.HenryProperties"
+    },
+    {
+      "name": "henry.name",
+      "type": "java.lang.String",
+      "sourceType": "dev.springboot.study.HenryProperties"
+    }
+  ],
+  "hints": []
+}

@@ -16,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(SpringRunner.class)
@@ -24,16 +25,16 @@ import org.springframework.test.web.servlet.MockMvc;
 public class SampleControllerTest {
 
     @Autowired
-    TestRestTemplate testRestTemplate;
+    WebTestClient webTestClient;
 
     @MockBean
     SampleService mockSampleService;
 
     @Test
     public void hello() throws Exception {
-        // 테스트 환경에서 mockSampleService.getName()이 호출되면 "wooody92"로 응답한다.
         when(mockSampleService.getName()).thenReturn("wooody92");
-        String result = testRestTemplate.getForObject("/hello", String.class);
-        assertEquals("hello wooody92", result);
+        webTestClient.get().uri("/hello").exchange()
+            .expectStatus().isOk()
+            .expectBody(String.class).isEqualTo("hello wooody92");
     }
 }

@@ -1,4 +1,4 @@
-package dev.springboot.study.properties;
+package dev.springboot.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

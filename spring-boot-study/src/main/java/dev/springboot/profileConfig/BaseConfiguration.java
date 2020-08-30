@@ -1,15 +1,15 @@
-package dev.springboot.study.profileConfig;
+package dev.springboot.profileConfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-@Profile("test")
+@Profile("prod")
 @Configuration
-public class TestConfiguration {
+public class BaseConfiguration {
 
     @Bean
     public String hello() {
-        return "hello test";
+        return "hello production";
     }
 }

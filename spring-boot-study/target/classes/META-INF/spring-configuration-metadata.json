@@ -7,8 +7,8 @@
     },
     {
       "name": "henry",
-      "type": "dev.springboot.study.properties.HenryProperties",
-      "sourceType": "dev.springboot.study.properties.HenryProperties"
+      "type": "dev.springboot.properties.HenryProperties",
+      "sourceType": "dev.springboot.properties.HenryProperties"
     }
   ],
   "properties": [
@@ -26,18 +26,18 @@
     {
       "name": "henry.age",
       "type": "java.lang.Integer",
-      "sourceType": "dev.springboot.study.properties.HenryProperties",
+      "sourceType": "dev.springboot.properties.HenryProperties",
       "defaultValue": 0
     },
     {
       "name": "henry.full-name",
       "type": "java.lang.String",
-      "sourceType": "dev.springboot.study.properties.HenryProperties"
+      "sourceType": "dev.springboot.properties.HenryProperties"
     },
     {
       "name": "henry.name",
       "type": "java.lang.String",
-      "sourceType": "dev.springboot.study.properties.HenryProperties"
+      "sourceType": "dev.springboot.properties.HenryProperties"
     }
   ],
   "hints": []

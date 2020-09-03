@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(UserController.class)
@@ -43,5 +44,17 @@ public class UserControllerTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.username", is(equalTo("henry"))))
         .andExpect(jsonPath("$.password", is(equalTo("123"))));
+    }
+
+    @Test
+    public void createUser_XML() throws Exception {
+        String userJson = "{\"username\":\"henry\", \"password\":\"123\"}";
+        mockMvc.perform(post("/users/create")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.APPLICATION_XML) // accept header
+                .content(userJson))
+            .andExpect(status().isOk())
+            .andExpect(xpath("/User/username").string("henry"))
+            .andExpect(xpath("/User/password").string("123"));
     }
 }

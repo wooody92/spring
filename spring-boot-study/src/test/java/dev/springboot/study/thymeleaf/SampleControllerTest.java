@@ -13,6 +13,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlHeading1;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import java.io.IOException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +31,11 @@ public class SampleControllerTest {
     @Autowired
     MockMvc mockMvc;
 
+    @Autowired
+    WebClient webClient;
+
     @Test
-    public void hello() throws Exception {
+    public void hello1() throws Exception {
         // 요청 : "/hello"
         // 응답
         // ~ 모델 name : henry
@@ -40,4 +47,12 @@ public class SampleControllerTest {
             .andExpect(model().attribute("name", is("henry"))) // model : name - henry의 model이 있는지
             .andExpect(content().string(containsString("henry"))); // view
     }
+
+    @Test
+    public void hello() throws IOException {
+        HtmlPage page = webClient.getPage("/hello");
+        HtmlHeading1 h1 = page.getFirstByXPath("//h1");
+        assertThat(h1.getTextContent()).isEqualToIgnoringCase("henry");
+    }
+
 }

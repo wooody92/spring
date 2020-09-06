@@ -1,4 +1,4 @@
-package dev.springboot.study.eception;
+package dev.springboot.eception;
 
 public class SampleException extends RuntimeException {
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Application {
 
-    @CrossOrigin(origins = "http://localhost:18080")
+//    @CrossOrigin(origins = "http://localhost:18080")
     @GetMapping("/cors")
     public String corsTest() {
         return "hello";

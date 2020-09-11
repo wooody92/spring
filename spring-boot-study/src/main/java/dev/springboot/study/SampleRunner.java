@@ -25,6 +25,7 @@ public class SampleRunner implements ApplicationRunner {
         try (Connection connection = dataSource.getConnection()) {
             String url = connection.getMetaData().getURL();
             String userName = connection.getMetaData().getUserName();
+            System.out.println(dataSource.getClass());
             System.out.println("url : " + url);
             System.out.println("userName : " + userName);
 

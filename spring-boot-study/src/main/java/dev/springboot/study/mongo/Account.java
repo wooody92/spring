@@ -1,13 +1,12 @@
-package dev.springboot.study.redis;
+package dev.springboot.study.mongo;
 
 import javax.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@RedisHash("accounts")
-@Getter
-@Setter
+@Document(collection = "accounts")
+@Getter @Setter
 public class Account {
 
     @Id

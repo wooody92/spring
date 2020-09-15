@@ -1,4 +1,4 @@
-package dev.springboot.study.redis;
+package dev.springboot.redis;
 
 import org.springframework.data.repository.CrudRepository;
 

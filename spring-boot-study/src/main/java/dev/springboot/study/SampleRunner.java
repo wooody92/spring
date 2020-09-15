@@ -1,38 +1,39 @@
 package dev.springboot.study;
 
-import java.sql.Connection;
-import java.sql.Statement;
-import javax.sql.DataSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import dev.springboot.study.redis.Account;
+import dev.springboot.study.redis.AccountRepository;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SampleRunner implements ApplicationRunner {
 
     @Autowired
-    DataSource dataSource;
+    StringRedisTemplate redisTemplate;
 
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    AccountRepository accountRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        try (Connection connection = dataSource.getConnection()) {
-            String url = connection.getMetaData().getURL();
-            String userName = connection.getMetaData().getUserName();
-            System.out.println(dataSource.getClass());
-            System.out.println("url : " + url);
-            System.out.println("userName : " + userName);
+        ValueOperations<String, String> values = redisTemplate.opsForValue();
+        values.set("keesun", "whiteship");
+        values.set("springboot", "2.0");
+        values.set("hello", "world");
 
-            Statement statement = connection.createStatement();
-            String sql = "CREATE TABLE USER(ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id))";
-            statement.executeUpdate(sql);
-        }
-        jdbcTemplate.execute("INSERT INTO USER VALUES (1, 'henry')");
+        Account account = new Account();
+        account.setEmail("henry@gmail.com");
+        account.setUsername("henry");
+
+        accountRepository.save(account);
+
+        Optional<Account> byId = accountRepository.findById(account.getId());
+        System.out.println(byId.get().getUsername());
+        System.out.println(byId.get().getEmail());
     }
 }

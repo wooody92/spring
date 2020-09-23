@@ -1,4 +1,4 @@
-package dev.springboot.study.hateoas;
+package dev.springboot.hateoas;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;

@@ -1,4 +1,4 @@
-package dev.springboot.study.hateoas;
+package dev.springboot.hateoas;
 
 public class Hello {
 

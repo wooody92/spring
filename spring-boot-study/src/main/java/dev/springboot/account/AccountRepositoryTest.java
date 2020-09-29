@@ -1,6 +1,4 @@
-package dev.springboot.study.account;
-
-import static org.junit.Assert.*;
+package dev.springboot.account;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;

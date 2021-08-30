@@ -25,6 +25,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+    asciidoctor("org.springframework.restdocs:spring-restdocs-asciidoctor")
 }
 
 tasks.withType<KotlinCompile> {
@@ -44,5 +45,9 @@ tasks.test {
 
 tasks.asciidoctor {
     inputs.dir(snippetsDir)
+    val test by tasks
     dependsOn(test)
 }
+
+val file = file("build/generated-snippets")
+val snippetsDir = file.absoluteFile

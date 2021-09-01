@@ -16,7 +16,8 @@ Spring에 대해 공부하고 학습한 내용을 블로그에 정리합니다.
    - JPA study : 실전! 스프링 부트와 JPA 활용 - 웹 애플리케이션 개발 (김영한)
      - [https://wooody92.github.io/categories/#jpa](https://wooody92.github.io/categories/#jpa)
    - JPA Lock
-3. Spring REST docs
+3. [Spring REST docs](https://github.com/wooody92/spring/tree/master/03.%20Spring%20REST%20Docs)
+   - Spring REST Docs 데모 프로젝트
 4. Spring Cloud
 5. JUnit Test 
    - Test Container

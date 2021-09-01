@@ -1,0 +1,20 @@
+= REST docs Sample API v1
+:doctype: book
+:toc: left
+:sectnums:
+:toclevels: 3
+:source-highlighter: highlightjs
+
+== Overview
+
+=== HOST
+|===
+|환경|Host
+|LOCAL|http://localhost:8080
+|===
+
+
+== APIs
+URL은 `/api/v1/`로 시작한다.
+
+include::sample.adoc[]

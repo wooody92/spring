@@ -1,0 +1,65 @@
+plugins {
+    /* gradlew --version 6.x.x 에서는 버전 문제로 빌드가 안돼 spring version downgrade 진행 */
+    id 'org.springframework.boot' version '2.3.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+
+    /* asciidoctor plugin : gradlew --version 7.x.x 에서 에러 발생하여 6.x.x  */
+    id 'org.asciidoctor.convert' version '1.5.8'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    /* snippets 생성 위치 */
+    set('snippetsDir', file("${buildDir}/generated-snippets"))
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    /* mockmvc 를 restdocs 에 사용할 수 있게 하는 라이브러리 */
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+    /* build/generated-snippets 경로의 .adoc 파일을 읽어 HTML 문서로 export 하기위한 라이브러리 */
+    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+}
+
+test {
+    /* 테스트 실행 시 snippets 를 지정된 위치(생성 위치)에 생성하도록 설정 */
+    outputs.dir snippetsDir
+    useJUnitPlatform()
+}
+
+asciidoctor {
+    /* 입력 snippets 생성 위치 설정 */
+    inputs.dir snippetsDir
+
+    /* 문서 생성 전 test 가 실행되도록 의존성 설정 */
+    dependsOn test
+}
+
+bootJar {
+    /* jar 생성전에 asciidoctor 테스크가 실행되도록 설정 */
+    dependsOn asciidoctor
+
+    /* jar static 폴더에 rest docs 가 HTML 생성되면 추가 */
+    from("${asciidoctor.outputDir}/html5") {
+        into 'static/docs'
+    }
+}

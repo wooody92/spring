@@ -3,7 +3,6 @@ package com.example.batch.chunk.job;
 import com.example.batch.chunk.core.PayEntity;
 import com.example.batch.chunk.core.PayRepository;
 import java.util.Collections;
-import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -18,7 +18,7 @@ Spring에 대해 공부하고 학습한 내용을 블로그에 정리합니다.
    - JPA Lock
 3. [Spring REST docs](https://github.com/wooody92/spring/tree/master/03.%20Spring%20REST%20Docs)
    - Spring REST Docs 데모 프로젝트
-4. Spring Batch
+4. [Spring Batch](https://github.com/wooody92/spring/tree/master/04.%20Spring%20Batch)
    - Spring Batch 데모 프로젝트
 5. Spring Cloud
 6. JUnit Test 

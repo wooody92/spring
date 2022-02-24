@@ -1,4 +1,4 @@
-package com.example.batch.job;
+package com.example.batch.job.tasklet;
 
 import java.util.Random;
 import lombok.RequiredArgsConstructor;

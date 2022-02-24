@@ -1,7 +1,5 @@
-package com.example.batch.chunk.core;
+package com.example.batch.core.entity;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,18 +18,16 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Table(name = "pay")
-public class PayEntity {
-
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+@Table(name = "statistic")
+public class StatisticEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long amount;
+    private Long totalAmount;
 
-    private String txName;
-
-    private LocalDateTime txDateTime;
+    public StatisticEntity(Long totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 }

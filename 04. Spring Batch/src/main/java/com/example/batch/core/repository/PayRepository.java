@@ -1,5 +1,6 @@
-package com.example.batch.chunk.core;
+package com.example.batch.core.repository;
 
+import com.example.batch.core.entity.PayEntity;
 import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

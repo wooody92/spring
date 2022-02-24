@@ -1,8 +1,8 @@
-package com.example.batch.chunk.job;
+package com.example.batch.job.jpapagingitem;
 
-import com.example.batch.chunk.core.PayEntity;
-import com.example.batch.chunk.core.StatisticEntity;
-import com.example.batch.chunk.core.StatisticRepository;
+import com.example.batch.core.entity.PayEntity;
+import com.example.batch.core.entity.StatisticEntity;
+import com.example.batch.core.repository.StatisticRepository;
 import javax.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

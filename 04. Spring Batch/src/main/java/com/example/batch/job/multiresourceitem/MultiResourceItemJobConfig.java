@@ -19,6 +19,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
+/**
+ * MultiResourceItemJob
+ * - 여러 CSV file을 chunk 방식으로 처리하는 job
+ *
+ * reference
+ * - https://renuevo.github.io/spring/batch/spring-batch-chapter-2/
+ */
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
